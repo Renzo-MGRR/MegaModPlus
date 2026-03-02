@@ -103,10 +103,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>include/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -117,13 +120,41 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>include/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\imconfig.h" />
+    <ClInclude Include="include\imgui.h" />
+    <ClInclude Include="include\imgui_impl_dx11.h" />
+    <ClInclude Include="include\imgui_impl_win32.h" />
+    <ClInclude Include="include\imgui_internal.h" />
+    <ClInclude Include="include\imstb_rectpack.h" />
+    <ClInclude Include="include\imstb_textedit.h" />
+    <ClInclude Include="include\imstb_truetype.h" />
+    <ClInclude Include="include\IniReader.h" />
+    <ClInclude Include="include\ini_parser.hpp" />
+    <ClInclude Include="src\UI.h" />
+    <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\GuiBackend.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="include\imgui.cpp" />
+    <ClCompile Include="include\imgui_demo.cpp" />
+    <ClCompile Include="include\imgui_draw.cpp" />
+    <ClCompile Include="include\imgui_impl_dx11.cpp" />
+    <ClCompile Include="include\imgui_impl_win32.cpp" />
+    <ClCompile Include="include\imgui_tables.cpp" />
+    <ClCompile Include="include\imgui_widgets.cpp" />
+    <ClCompile Include="src\UI.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\GuiBackend.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
